@@ -1,0 +1,42 @@
+# Copyright 2017 Xeno Innovations, Inc.
+
+# Custom Ignore List
+
+build/bin/
+
+# ############### #
+# Standard Ignore #
+# ############### #
+
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.userprefs
+*.vbw
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+.vs/
+
+# NuGet Packages
+*.nupkg
+## The packages folder can be ignored because of Package Restore
+**/packages/*
+## except build/, which is used as an MSBuild target.
+!**/packages/build/
+## Uncomment if necessary however generally it will be regenerated when needed
+!**/packages/repositories.config
+/doc/*.csv
+/doc/backup
+/src_web/nbproject/private/
+MedLightDevice/__pycache__/
+/MedLightApp/MLA-Tasks_Log.csv
