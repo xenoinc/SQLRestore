@@ -1,4 +1,15 @@
-﻿using System;
+﻿/* Copyright Xeno Innovations, Inc. 2017
+ * Author:  Damian Suess
+ * Date:    2017-4-10
+ * File:    MainForm.cs
+ * Description:
+ *  
+ * To Do:
+ * Change Log:
+ *  2017-410 * Initial creation
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SQLRestore
+namespace Xeno.SQLRestore.Views
 {
   public partial class MainForm : Form
   {

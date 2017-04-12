@@ -1,4 +1,15 @@
-﻿using System.Reflection;
+﻿/* Copyright Xeno Innovations, Inc. 2017
+ * Author:  Damian Suess
+ * Date:    2017-4-10
+ * File:    AssemblyInfo.cs
+ * Description:
+ *  
+ * To Do:
+ * Change Log:
+ *  2017-410 * Initial creation
+ */
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
