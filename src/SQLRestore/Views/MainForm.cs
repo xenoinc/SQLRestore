@@ -27,5 +27,30 @@ namespace Xeno.SQLRestore.Views
     {
       InitializeComponent();
     }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void LoadAvailableDatabases()
+    {
+
+    }
+
+    private void btnDbBackup_Click(object sender, EventArgs e)
+    {
+      string dbName = "";
+    }
+
+    private void btnDbRestore_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void DbBackup(string dbName)
+    {
+
+    }
   }
 }
