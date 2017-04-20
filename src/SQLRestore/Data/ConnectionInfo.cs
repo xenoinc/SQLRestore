@@ -19,6 +19,8 @@ namespace Xeno.SQLRestore.Data
 
     public string Password { get; set; }
 
+    private readonly string _baseConnection = "Data Source={0};Initial Catalog={1};User Id={2};Password={3}";
+
     public string ConnectoinString
     {
       get

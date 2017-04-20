@@ -52,5 +52,16 @@ namespace Xeno.SQLRestore.Views
     {
 
     }
+
+    private void mnuOptions_Click(object sender, EventArgs e)
+    {
+      Form frm = new Views.SettingsForm();
+      if (frm.ShowDialog(this) == DialogResult.OK)
+      {
+
+      }
+      frm.Dispose();
+
+    }
   }
 }
