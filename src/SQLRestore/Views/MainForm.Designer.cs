@@ -44,27 +44,29 @@ namespace Xeno.SQLRestore.Views
       this.tsStatus = new System.Windows.Forms.ToolStripStatusLabel();
       this.tsProgressBar = new System.Windows.Forms.ToolStripProgressBar();
       this.tabControl1 = new System.Windows.Forms.TabControl();
-      this.tabPage1 = new System.Windows.Forms.TabPage();
-      this.label4 = new System.Windows.Forms.Label();
-      this.comboBox1 = new System.Windows.Forms.ComboBox();
-      this.chkRestoreOverwrite = new System.Windows.Forms.CheckBox();
-      this.label3 = new System.Windows.Forms.Label();
-      this.btnDbRestore = new System.Windows.Forms.Button();
-      this.lvFileList = new System.Windows.Forms.ListView();
-      this.tabPage3 = new System.Windows.Forms.TabPage();
+      this.tabBackup = new System.Windows.Forms.TabPage();
+      this.btnSqlDbRefresh = new System.Windows.Forms.Button();
       this.label5 = new System.Windows.Forms.Label();
       this.lstAvailableDb = new System.Windows.Forms.ListBox();
       this.btnDbBackup = new System.Windows.Forms.Button();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.chkCompress = new System.Windows.Forms.CheckBox();
       this.chkIsGolden = new System.Windows.Forms.CheckBox();
+      this.tabArchive = new System.Windows.Forms.TabPage();
+      this.label4 = new System.Windows.Forms.Label();
+      this.comboBox1 = new System.Windows.Forms.ComboBox();
+      this.chkRestoreOverwrite = new System.Windows.Forms.CheckBox();
+      this.label3 = new System.Windows.Forms.Label();
+      this.btnDbRestore = new System.Windows.Forms.Button();
+      this.lvFileList = new System.Windows.Forms.ListView();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.mnuOptions = new System.Windows.Forms.ToolStripMenuItem();
+      this.btnSqlTest = new System.Windows.Forms.Button();
       this.statusStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
-      this.tabPage1.SuspendLayout();
-      this.tabPage3.SuspendLayout();
+      this.tabBackup.SuspendLayout();
       this.groupBox2.SuspendLayout();
+      this.tabArchive.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -89,8 +91,8 @@ namespace Xeno.SQLRestore.Views
       // tsStatus
       // 
       this.tsStatus.Name = "tsStatus";
-      this.tsStatus.Size = new System.Drawing.Size(26, 17);
-      this.tsStatus.Text = "Idle";
+      this.tsStatus.Size = new System.Drawing.Size(70, 17);
+      this.tsStatus.Text = "Idleasdfasdf";
       // 
       // tsProgressBar
       // 
@@ -102,29 +104,119 @@ namespace Xeno.SQLRestore.Views
       this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.tabControl1.Controls.Add(this.tabPage1);
-      this.tabControl1.Controls.Add(this.tabPage3);
+      this.tabControl1.Controls.Add(this.tabBackup);
+      this.tabControl1.Controls.Add(this.tabArchive);
       this.tabControl1.Location = new System.Drawing.Point(0, 27);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       this.tabControl1.Size = new System.Drawing.Size(582, 274);
       this.tabControl1.TabIndex = 2;
       // 
-      // tabPage1
+      // tabBackup
       // 
-      this.tabPage1.Controls.Add(this.label4);
-      this.tabPage1.Controls.Add(this.comboBox1);
-      this.tabPage1.Controls.Add(this.chkRestoreOverwrite);
-      this.tabPage1.Controls.Add(this.label3);
-      this.tabPage1.Controls.Add(this.btnDbRestore);
-      this.tabPage1.Controls.Add(this.lvFileList);
-      this.tabPage1.Location = new System.Drawing.Point(4, 22);
-      this.tabPage1.Name = "tabPage1";
-      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(574, 248);
-      this.tabPage1.TabIndex = 0;
-      this.tabPage1.Text = "Archives";
-      this.tabPage1.UseVisualStyleBackColor = true;
+      this.tabBackup.Controls.Add(this.btnSqlTest);
+      this.tabBackup.Controls.Add(this.btnSqlDbRefresh);
+      this.tabBackup.Controls.Add(this.label5);
+      this.tabBackup.Controls.Add(this.lstAvailableDb);
+      this.tabBackup.Controls.Add(this.btnDbBackup);
+      this.tabBackup.Controls.Add(this.groupBox2);
+      this.tabBackup.Location = new System.Drawing.Point(4, 22);
+      this.tabBackup.Name = "tabBackup";
+      this.tabBackup.Padding = new System.Windows.Forms.Padding(3);
+      this.tabBackup.Size = new System.Drawing.Size(574, 248);
+      this.tabBackup.TabIndex = 2;
+      this.tabBackup.Text = "Backup";
+      this.tabBackup.UseVisualStyleBackColor = true;
+      // 
+      // btnSqlDbRefresh
+      // 
+      this.btnSqlDbRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnSqlDbRefresh.Location = new System.Drawing.Point(314, 6);
+      this.btnSqlDbRefresh.Name = "btnSqlDbRefresh";
+      this.btnSqlDbRefresh.Size = new System.Drawing.Size(75, 23);
+      this.btnSqlDbRefresh.TabIndex = 11;
+      this.btnSqlDbRefresh.Text = "Refresh";
+      this.btnSqlDbRefresh.UseVisualStyleBackColor = true;
+      this.btnSqlDbRefresh.Click += new System.EventHandler(this.btnSqlDbRefresh_Click);
+      // 
+      // label5
+      // 
+      this.label5.AutoSize = true;
+      this.label5.Location = new System.Drawing.Point(6, 6);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(107, 13);
+      this.label5.TabIndex = 8;
+      this.label5.Text = "Available Databases:";
+      // 
+      // lstAvailableDb
+      // 
+      this.lstAvailableDb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.lstAvailableDb.FormattingEnabled = true;
+      this.lstAvailableDb.Location = new System.Drawing.Point(6, 32);
+      this.lstAvailableDb.Name = "lstAvailableDb";
+      this.lstAvailableDb.Size = new System.Drawing.Size(383, 199);
+      this.lstAvailableDb.TabIndex = 7;
+      // 
+      // btnDbBackup
+      // 
+      this.btnDbBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnDbBackup.Location = new System.Drawing.Point(493, 219);
+      this.btnDbBackup.Name = "btnDbBackup";
+      this.btnDbBackup.Size = new System.Drawing.Size(75, 23);
+      this.btnDbBackup.TabIndex = 6;
+      this.btnDbBackup.Text = "Backup";
+      this.btnDbBackup.UseVisualStyleBackColor = true;
+      this.btnDbBackup.Click += new System.EventHandler(this.btnDbBackup_Click);
+      // 
+      // groupBox2
+      // 
+      this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.groupBox2.Controls.Add(this.chkCompress);
+      this.groupBox2.Controls.Add(this.chkIsGolden);
+      this.groupBox2.Location = new System.Drawing.Point(395, 6);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new System.Drawing.Size(171, 71);
+      this.groupBox2.TabIndex = 5;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Options";
+      // 
+      // chkCompress
+      // 
+      this.chkCompress.AutoSize = true;
+      this.chkCompress.Location = new System.Drawing.Point(6, 42);
+      this.chkCompress.Name = "chkCompress";
+      this.chkCompress.Size = new System.Drawing.Size(111, 17);
+      this.chkCompress.TabIndex = 1;
+      this.chkCompress.Text = "Compress backup";
+      this.chkCompress.UseVisualStyleBackColor = true;
+      // 
+      // chkIsGolden
+      // 
+      this.chkIsGolden.AutoSize = true;
+      this.chkIsGolden.Location = new System.Drawing.Point(6, 19);
+      this.chkIsGolden.Name = "chkIsGolden";
+      this.chkIsGolden.Size = new System.Drawing.Size(111, 17);
+      this.chkIsGolden.TabIndex = 0;
+      this.chkIsGolden.Text = "Mark as \"Golden\"";
+      this.chkIsGolden.UseVisualStyleBackColor = true;
+      // 
+      // tabArchive
+      // 
+      this.tabArchive.Controls.Add(this.label4);
+      this.tabArchive.Controls.Add(this.comboBox1);
+      this.tabArchive.Controls.Add(this.chkRestoreOverwrite);
+      this.tabArchive.Controls.Add(this.label3);
+      this.tabArchive.Controls.Add(this.btnDbRestore);
+      this.tabArchive.Controls.Add(this.lvFileList);
+      this.tabArchive.Location = new System.Drawing.Point(4, 22);
+      this.tabArchive.Name = "tabArchive";
+      this.tabArchive.Padding = new System.Windows.Forms.Padding(3);
+      this.tabArchive.Size = new System.Drawing.Size(574, 248);
+      this.tabArchive.TabIndex = 0;
+      this.tabArchive.Text = "Archives";
+      this.tabArchive.UseVisualStyleBackColor = true;
       // 
       // label4
       // 
@@ -188,80 +280,6 @@ namespace Xeno.SQLRestore.Views
       this.lvFileList.TabIndex = 3;
       this.lvFileList.UseCompatibleStateImageBehavior = false;
       // 
-      // tabPage3
-      // 
-      this.tabPage3.Controls.Add(this.label5);
-      this.tabPage3.Controls.Add(this.lstAvailableDb);
-      this.tabPage3.Controls.Add(this.btnDbBackup);
-      this.tabPage3.Controls.Add(this.groupBox2);
-      this.tabPage3.Location = new System.Drawing.Point(4, 22);
-      this.tabPage3.Name = "tabPage3";
-      this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage3.Size = new System.Drawing.Size(574, 248);
-      this.tabPage3.TabIndex = 2;
-      this.tabPage3.Text = "Backup";
-      this.tabPage3.UseVisualStyleBackColor = true;
-      // 
-      // label5
-      // 
-      this.label5.AutoSize = true;
-      this.label5.Location = new System.Drawing.Point(6, 6);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(104, 13);
-      this.label5.TabIndex = 8;
-      this.label5.Text = "Available Databases";
-      // 
-      // lstAvailableDb
-      // 
-      this.lstAvailableDb.FormattingEnabled = true;
-      this.lstAvailableDb.Location = new System.Drawing.Point(6, 32);
-      this.lstAvailableDb.Name = "lstAvailableDb";
-      this.lstAvailableDb.Size = new System.Drawing.Size(285, 173);
-      this.lstAvailableDb.TabIndex = 7;
-      // 
-      // btnDbBackup
-      // 
-      this.btnDbBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnDbBackup.Location = new System.Drawing.Point(491, 189);
-      this.btnDbBackup.Name = "btnDbBackup";
-      this.btnDbBackup.Size = new System.Drawing.Size(75, 23);
-      this.btnDbBackup.TabIndex = 6;
-      this.btnDbBackup.Text = "Backup";
-      this.btnDbBackup.UseVisualStyleBackColor = true;
-      this.btnDbBackup.Click += new System.EventHandler(this.btnDbBackup_Click);
-      // 
-      // groupBox2
-      // 
-      this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.groupBox2.Controls.Add(this.chkCompress);
-      this.groupBox2.Controls.Add(this.chkIsGolden);
-      this.groupBox2.Location = new System.Drawing.Point(395, 6);
-      this.groupBox2.Name = "groupBox2";
-      this.groupBox2.Size = new System.Drawing.Size(171, 71);
-      this.groupBox2.TabIndex = 5;
-      this.groupBox2.TabStop = false;
-      this.groupBox2.Text = "Options";
-      // 
-      // chkCompress
-      // 
-      this.chkCompress.AutoSize = true;
-      this.chkCompress.Location = new System.Drawing.Point(6, 42);
-      this.chkCompress.Name = "chkCompress";
-      this.chkCompress.Size = new System.Drawing.Size(111, 17);
-      this.chkCompress.TabIndex = 1;
-      this.chkCompress.Text = "Compress backup";
-      this.chkCompress.UseVisualStyleBackColor = true;
-      // 
-      // chkIsGolden
-      // 
-      this.chkIsGolden.AutoSize = true;
-      this.chkIsGolden.Location = new System.Drawing.Point(6, 19);
-      this.chkIsGolden.Name = "chkIsGolden";
-      this.chkIsGolden.Size = new System.Drawing.Size(111, 17);
-      this.chkIsGolden.TabIndex = 0;
-      this.chkIsGolden.Text = "Mark as \"Golden\"";
-      this.chkIsGolden.UseVisualStyleBackColor = true;
-      // 
       // menuStrip1
       // 
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -279,6 +297,17 @@ namespace Xeno.SQLRestore.Views
       this.mnuOptions.Text = "Options";
       this.mnuOptions.Click += new System.EventHandler(this.mnuOptions_Click);
       // 
+      // btnSqlTest
+      // 
+      this.btnSqlTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnSqlTest.Location = new System.Drawing.Point(187, 6);
+      this.btnSqlTest.Name = "btnSqlTest";
+      this.btnSqlTest.Size = new System.Drawing.Size(121, 23);
+      this.btnSqlTest.TabIndex = 12;
+      this.btnSqlTest.Text = "Connection Test";
+      this.btnSqlTest.UseVisualStyleBackColor = true;
+      this.btnSqlTest.Click += new System.EventHandler(this.btnSqlTest_Click);
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,12 +323,12 @@ namespace Xeno.SQLRestore.Views
       this.statusStrip1.ResumeLayout(false);
       this.statusStrip1.PerformLayout();
       this.tabControl1.ResumeLayout(false);
-      this.tabPage1.ResumeLayout(false);
-      this.tabPage1.PerformLayout();
-      this.tabPage3.ResumeLayout(false);
-      this.tabPage3.PerformLayout();
+      this.tabBackup.ResumeLayout(false);
+      this.tabBackup.PerformLayout();
       this.groupBox2.ResumeLayout(false);
       this.groupBox2.PerformLayout();
+      this.tabArchive.ResumeLayout(false);
+      this.tabArchive.PerformLayout();
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
@@ -313,10 +342,10 @@ namespace Xeno.SQLRestore.Views
     private System.Windows.Forms.ToolStripStatusLabel tsStatus;
     private System.Windows.Forms.ToolStripProgressBar tsProgressBar;
     private System.Windows.Forms.TabControl tabControl1;
-    private System.Windows.Forms.TabPage tabPage1;
+    private System.Windows.Forms.TabPage tabArchive;
     private System.Windows.Forms.Button btnDbRestore;
     private System.Windows.Forms.ListView lvFileList;
-    private System.Windows.Forms.TabPage tabPage3;
+    private System.Windows.Forms.TabPage tabBackup;
     private System.Windows.Forms.Button btnDbBackup;
     private System.Windows.Forms.GroupBox groupBox2;
     private System.Windows.Forms.CheckBox chkCompress;
@@ -329,6 +358,8 @@ namespace Xeno.SQLRestore.Views
     private System.Windows.Forms.ListBox lstAvailableDb;
     private System.Windows.Forms.MenuStrip menuStrip1;
     private System.Windows.Forms.ToolStripMenuItem mnuOptions;
+    private System.Windows.Forms.Button btnSqlDbRefresh;
+    private System.Windows.Forms.Button btnSqlTest;
   }
 }
 

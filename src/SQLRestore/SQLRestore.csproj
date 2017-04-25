@@ -45,14 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ConnectionInfo.cs" />
+    <Compile Include="Data\Database\SqlServerDatabase.cs" />
     <Compile Include="Data\Database\UserVerification.cs" />
     <Compile Include="Data\MSSqlHelpers.cs" />
     <Compile Include="Data\Providers\IniFile.cs" />
-    <Compile Include="Data\Providers\IniFile2.cs" />
-    <Compile Include="Data\Settings\Key.cs" />
     <Compile Include="Data\TestBackupService.cs" />
-    <Compile Include="Data\IniSettings.cs" />
+    <Compile Include="Data\AppSettings.cs" />
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

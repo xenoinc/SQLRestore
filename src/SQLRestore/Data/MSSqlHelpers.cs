@@ -19,11 +19,11 @@ namespace Xeno.SQLRestore.Data
 {
   public class MSSqlHelpers
   {
-    private ConnectionInfo _connInfo;
+    //private ConnectionInfo _connInfo;
 
     public MSSqlHelpers()
     {
-      _connInfo = new ConnectionInfo(".", "", "");
+      //_connInfo = new ConnectionInfo(".", "", "");
     }
 
     public bool TestConnection()

@@ -4,7 +4,7 @@
  * File:    IniFile
  * Description:
  *  Simple implemetion of Ini File read/writer
- * To Do:
+ *
  * Change Log:
  *  2017-420 * Initial creation
  */

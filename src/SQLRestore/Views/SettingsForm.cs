@@ -12,7 +12,6 @@
 using System;
 using System.Windows.Forms;
 using Xeno.SQLRestore.Data;
-using Xeno.SQLRestore.Data.Settings;
 
 namespace Xeno.SQLRestore.Views
 {
@@ -42,22 +41,22 @@ namespace Xeno.SQLRestore.Views
 
     private void ReadSettings()
     {
-      txtSettingsFolder.Text = IniSettings.Get(Section.System, Key.SysBackupFolder);
-      txtSettingNameFormat.Text = IniSettings.Get(Section.System, Key.SysFileFormat);
+      txtSettingsFolder.Text = AppSettings.BackupFolder;
+      txtSettingNameFormat.Text = AppSettings.BackupFileFormat;
 
-      cmboSqlHost.Text = IniSettings.Get(Section.Database, Key.SqlEngine);
-      txtSqlUser.Text = IniSettings.Get(Section.Database, Key.SqlUser);
-      txtSqlPassword.Text = IniSettings.Get(Section.Database, Key.SqlPassword);
+      cmboSqlHost.Text = AppSettings.DbServer;
+      txtSqlUser.Text = AppSettings.DbUserName;
+      txtSqlPassword.Text = AppSettings.DbUserPass;
     }
 
     private void SaveSettings()
     {
-      IniSettings.Set(Section.System, Key.SysBackupFolder, txtSettingsFolder.Text);
-      IniSettings.Set(Section.System, Key.SysFileFormat, txtSettingNameFormat.Text);
+      AppSettings.BackupFolder = txtSettingsFolder.Text;
+      AppSettings.BackupFileFormat = txtSettingNameFormat.Text;
 
-      IniSettings.Set(Section.Database, Key.SqlEngine, cmboSqlHost.Text);
-      IniSettings.Set(Section.Database, Key.SqlUser, txtSqlUser.Text);
-      IniSettings.Set(Section.Database, Key.SqlPassword, txtSqlPassword.Text);
+      AppSettings.DbServer = cmboSqlHost.Text;
+      AppSettings.DbUserName = txtSqlUser.Text;
+      AppSettings.DbUserPass = txtSqlPassword.Text;
     }
 
   }

@@ -49,8 +49,8 @@ namespace Xeno.SQLRestore.Views
       this.label2 = new System.Windows.Forms.Label();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.label6 = new System.Windows.Forms.Label();
-      this.radioButton2 = new System.Windows.Forms.RadioButton();
-      this.radioButton1 = new System.Windows.Forms.RadioButton();
+      this.radioSqlLoginTrusted = new System.Windows.Forms.RadioButton();
+      this.radioSqlLoginUser = new System.Windows.Forms.RadioButton();
       this.cmboSqlHost = new System.Windows.Forms.ComboBox();
       this.txtSqlPassword = new System.Windows.Forms.TextBox();
       this.txtSqlUser = new System.Windows.Forms.TextBox();
@@ -151,8 +151,8 @@ namespace Xeno.SQLRestore.Views
       // groupBox2
       // 
       this.groupBox2.Controls.Add(this.label6);
-      this.groupBox2.Controls.Add(this.radioButton2);
-      this.groupBox2.Controls.Add(this.radioButton1);
+      this.groupBox2.Controls.Add(this.radioSqlLoginTrusted);
+      this.groupBox2.Controls.Add(this.radioSqlLoginUser);
       this.groupBox2.Controls.Add(this.cmboSqlHost);
       this.groupBox2.Controls.Add(this.txtSqlPassword);
       this.groupBox2.Controls.Add(this.txtSqlUser);
@@ -175,29 +175,29 @@ namespace Xeno.SQLRestore.Views
       this.label6.TabIndex = 12;
       this.label6.Text = "Pass:";
       // 
-      // radioButton2
+      // radioSqlLoginTrusted
       // 
-      this.radioButton2.AutoSize = true;
-      this.radioButton2.Enabled = false;
-      this.radioButton2.Location = new System.Drawing.Point(148, 97);
-      this.radioButton2.Name = "radioButton2";
-      this.radioButton2.Size = new System.Drawing.Size(94, 17);
-      this.radioButton2.TabIndex = 11;
-      this.radioButton2.Text = "Windows Cred";
-      this.radioButton2.UseVisualStyleBackColor = true;
+      this.radioSqlLoginTrusted.AutoSize = true;
+      this.radioSqlLoginTrusted.Enabled = false;
+      this.radioSqlLoginTrusted.Location = new System.Drawing.Point(148, 97);
+      this.radioSqlLoginTrusted.Name = "radioSqlLoginTrusted";
+      this.radioSqlLoginTrusted.Size = new System.Drawing.Size(118, 17);
+      this.radioSqlLoginTrusted.TabIndex = 11;
+      this.radioSqlLoginTrusted.Text = "Trusted Connection";
+      this.radioSqlLoginTrusted.UseVisualStyleBackColor = true;
       // 
-      // radioButton1
+      // radioSqlLoginUser
       // 
-      this.radioButton1.AutoSize = true;
-      this.radioButton1.Checked = true;
-      this.radioButton1.Enabled = false;
-      this.radioButton1.Location = new System.Drawing.Point(57, 97);
-      this.radioButton1.Name = "radioButton1";
-      this.radioButton1.Size = new System.Drawing.Size(71, 17);
-      this.radioButton1.TabIndex = 10;
-      this.radioButton1.TabStop = true;
-      this.radioButton1.Text = "SQL User";
-      this.radioButton1.UseVisualStyleBackColor = true;
+      this.radioSqlLoginUser.AutoSize = true;
+      this.radioSqlLoginUser.Checked = true;
+      this.radioSqlLoginUser.Enabled = false;
+      this.radioSqlLoginUser.Location = new System.Drawing.Point(57, 97);
+      this.radioSqlLoginUser.Name = "radioSqlLoginUser";
+      this.radioSqlLoginUser.Size = new System.Drawing.Size(71, 17);
+      this.radioSqlLoginUser.TabIndex = 10;
+      this.radioSqlLoginUser.TabStop = true;
+      this.radioSqlLoginUser.Text = "SQL User";
+      this.radioSqlLoginUser.UseVisualStyleBackColor = true;
       // 
       // cmboSqlHost
       // 
@@ -290,8 +290,8 @@ namespace Xeno.SQLRestore.Views
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label6;
-    private System.Windows.Forms.RadioButton radioButton2;
-    private System.Windows.Forms.RadioButton radioButton1;
+    private System.Windows.Forms.RadioButton radioSqlLoginTrusted;
+    private System.Windows.Forms.RadioButton radioSqlLoginUser;
     private System.Windows.Forms.ComboBox cmboSqlHost;
   }
 }
