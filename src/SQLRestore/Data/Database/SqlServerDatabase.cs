@@ -11,14 +11,15 @@
  *  2017-421 * Initial creation
  */
 
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace Xeno.SQLRestore.Data.Database
 {
-  public struct SqlConnectionStruct 
-    // : IDisposable
+  public struct SqlConnectionStruct
   {
     public bool IsTrustedConnection;
     public string Server;
@@ -27,13 +28,11 @@ namespace Xeno.SQLRestore.Data.Database
     public string Password;
   }
 
-  public class SqlServerDatabase
+  public class SqlServerDatabase : IDisposable
   {
     private SqlConnection _conn;
 
     #region Properties
-
-    public SqlConnection Connection { get { return _conn; } }
 
     public string ConnectionString
     {
@@ -46,6 +45,8 @@ namespace Xeno.SQLRestore.Data.Database
       }
     }
 
+    public SqlConnection Connection { get { return _conn; } }
+
     public bool IsTrustedConection { get; set; }
 
     public string Server { get; set; }
@@ -56,13 +57,7 @@ namespace Xeno.SQLRestore.Data.Database
 
     public string Password { get; set; }
 
-    public ConnectionState State
-    {
-      get
-      {
-        return _conn.State;
-      }
-    }
+    public ConnectionState State { get { return _conn.State; } }
 
     #endregion Properties
 
@@ -91,18 +86,35 @@ namespace Xeno.SQLRestore.Data.Database
       Password = connStruct.Password;
     }
 
-    //private System.ComponentModel.IContainer _components = null;
-    //
-    ///// <summary>Clean up any resources being used.</summary>
-    ///// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    //protected override void Dispose(bool disposing)
-    //{
-    //  if (disposing && (_components != null))
-    //  {
-    //    _components.Dispose();
-    //  }
-    //  base.Dispose(disposing);
-    //}
+    
+    private bool _disposed = false;
+    private SafeHandle _handle = new SafeFileHandle(IntPtr.Zero, true);
+
+    public void Dispose()
+    {
+      Dispose(true);
+      GC.SuppressFinalize(this);
+    }
+
+    /// <summary>Clean up any resources being used.</summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected virtual void Dispose(bool disposing)
+    {
+      if (_disposed)
+        return;
+
+      if (disposing)
+      {
+        _handle.Dispose();
+        // Free any other managed object here
+        this.Disconnect();
+        _conn.Dispose();
+        _conn = null;
+      }
+
+      // Free unmanaged objects here
+      _disposed = true;
+    }
 
     #endregion Constructors
 
@@ -177,8 +189,8 @@ namespace Xeno.SQLRestore.Data.Database
         using (SqlConnection connection = new SqlConnection(ConnectionString))
         {
           connection.Open();
-          SqlDataAdapter DA = new SqlDataAdapter(query, connection);
-          DA.Fill(dSet);
+          SqlDataAdapter da = new SqlDataAdapter(query, connection);
+          da.Fill(dSet);
         }
       }
       catch (Exception)

@@ -125,23 +125,19 @@ namespace Xeno.SQLRestore.Views
 
     private void ConnectionTest()
     {
-      this.Status = "Connecting...";
+      this.Status = "Testing connection...";
       try
       {
         SqlServerDatabase db = new Data.Database.SqlServerDatabase(DbConnStruct(""));
         db.Connect();
-
         db.Disconnect();
 
-        MessageBox.Show("OK");
-
+        this.Status = "Connection OK!";
       }
       catch(Exception)
       {
-        MessageBox.Show("Failure");
+        this.Status = "Connection failed";
       }
-
-      this.Status = "";
     }
 
     private void RefreshDatabaseList()
@@ -149,22 +145,24 @@ namespace Xeno.SQLRestore.Views
       try
       {
         lstAvailableDb.Items.Clear();
-        SqlServerDatabase db = new Data.Database.SqlServerDatabase(DbConnStruct(""));
-        db.Connect();
-
-        string query = "select * from master.sys.databases";
-
-        DataTable databases = db.Connection.GetSchema("Databases");
-        foreach (DataRow row in databases.Rows)
+        using (SqlServerDatabase db = new Data.Database.SqlServerDatabase(DbConnStruct("")))
         {
-          string dbName = row.Field<string>("database_name");
-          short dbId = row.Field<short>("dbid");
-          DateTime dttm = row.Field<DateTime>("create_date");
+          db.Connect();
 
-          lstAvailableDb.Items.Add(dbName);
+          //string query = "select * from master.sys.databases";
+          DataTable databases = db.Connection.GetSchema("Databases");
+          foreach (DataRow row in databases.Rows)
+          {
+            string dbName = row.Field<string>("database_name");
+            short dbId = row.Field<short>("dbid");
+            DateTime dttm = row.Field<DateTime>("create_date");
+
+            lstAvailableDb.Items.Add(dbName);
+          }
+          //db.Disconnect();
+
         }
-
-        db.Disconnect();
+        
 
 
         //con.Open();
