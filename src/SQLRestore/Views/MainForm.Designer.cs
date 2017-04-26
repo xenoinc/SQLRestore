@@ -45,6 +45,7 @@ namespace Xeno.SQLRestore.Views
       this.tsProgressBar = new System.Windows.Forms.ToolStripProgressBar();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabBackup = new System.Windows.Forms.TabPage();
+      this.btnSqlTest = new System.Windows.Forms.Button();
       this.btnSqlDbRefresh = new System.Windows.Forms.Button();
       this.label5 = new System.Windows.Forms.Label();
       this.lstAvailableDb = new System.Windows.Forms.ListBox();
@@ -61,13 +62,27 @@ namespace Xeno.SQLRestore.Views
       this.lvFileList = new System.Windows.Forms.ListView();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.mnuOptions = new System.Windows.Forms.ToolStripMenuItem();
-      this.btnSqlTest = new System.Windows.Forms.Button();
+      this.tabExtras = new System.Windows.Forms.TabPage();
+      this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.groupBox3 = new System.Windows.Forms.GroupBox();
+      this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.textBox2 = new System.Windows.Forms.TextBox();
+      this.checkBox2 = new System.Windows.Forms.CheckBox();
+      this.button1 = new System.Windows.Forms.Button();
       this.statusStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabBackup.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.tabArchive.SuspendLayout();
       this.menuStrip1.SuspendLayout();
+      this.tabExtras.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+      this.splitContainer1.Panel1.SuspendLayout();
+      this.splitContainer1.Panel2.SuspendLayout();
+      this.splitContainer1.SuspendLayout();
+      this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 
       // statusStrip1
@@ -106,6 +121,7 @@ namespace Xeno.SQLRestore.Views
             | System.Windows.Forms.AnchorStyles.Right)));
       this.tabControl1.Controls.Add(this.tabBackup);
       this.tabControl1.Controls.Add(this.tabArchive);
+      this.tabControl1.Controls.Add(this.tabExtras);
       this.tabControl1.Location = new System.Drawing.Point(0, 27);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
@@ -114,6 +130,7 @@ namespace Xeno.SQLRestore.Views
       // 
       // tabBackup
       // 
+      this.tabBackup.Controls.Add(this.button1);
       this.tabBackup.Controls.Add(this.btnSqlTest);
       this.tabBackup.Controls.Add(this.btnSqlDbRefresh);
       this.tabBackup.Controls.Add(this.label5);
@@ -127,6 +144,17 @@ namespace Xeno.SQLRestore.Views
       this.tabBackup.TabIndex = 2;
       this.tabBackup.Text = "Backup";
       this.tabBackup.UseVisualStyleBackColor = true;
+      // 
+      // btnSqlTest
+      // 
+      this.btnSqlTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnSqlTest.Location = new System.Drawing.Point(187, 6);
+      this.btnSqlTest.Name = "btnSqlTest";
+      this.btnSqlTest.Size = new System.Drawing.Size(121, 23);
+      this.btnSqlTest.TabIndex = 12;
+      this.btnSqlTest.Text = "Connection Test";
+      this.btnSqlTest.UseVisualStyleBackColor = true;
+      this.btnSqlTest.Click += new System.EventHandler(this.btnSqlTest_Click);
       // 
       // btnSqlDbRefresh
       // 
@@ -297,16 +325,115 @@ namespace Xeno.SQLRestore.Views
       this.mnuOptions.Text = "Options";
       this.mnuOptions.Click += new System.EventHandler(this.mnuOptions_Click);
       // 
-      // btnSqlTest
+      // tabExtras
       // 
-      this.btnSqlTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnSqlTest.Location = new System.Drawing.Point(187, 6);
-      this.btnSqlTest.Name = "btnSqlTest";
-      this.btnSqlTest.Size = new System.Drawing.Size(121, 23);
-      this.btnSqlTest.TabIndex = 12;
-      this.btnSqlTest.Text = "Connection Test";
-      this.btnSqlTest.UseVisualStyleBackColor = true;
-      this.btnSqlTest.Click += new System.EventHandler(this.btnSqlTest_Click);
+      this.tabExtras.Controls.Add(this.splitContainer1);
+      this.tabExtras.Location = new System.Drawing.Point(4, 22);
+      this.tabExtras.Name = "tabExtras";
+      this.tabExtras.Padding = new System.Windows.Forms.Padding(3);
+      this.tabExtras.Size = new System.Drawing.Size(574, 248);
+      this.tabExtras.TabIndex = 3;
+      this.tabExtras.Text = "Pre-Post Exections";
+      this.tabExtras.UseVisualStyleBackColor = true;
+      // 
+      // splitContainer1
+      // 
+      this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+      this.splitContainer1.Name = "splitContainer1";
+      // 
+      // splitContainer1.Panel1
+      // 
+      this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+      // 
+      // splitContainer1.Panel2
+      // 
+      this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
+      this.splitContainer1.Size = new System.Drawing.Size(568, 242);
+      this.splitContainer1.SplitterDistance = 354;
+      this.splitContainer1.TabIndex = 0;
+      // 
+      // groupBox1
+      // 
+      this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.groupBox1.Controls.Add(this.textBox2);
+      this.groupBox1.Controls.Add(this.checkBox2);
+      this.groupBox1.Controls.Add(this.textBox1);
+      this.groupBox1.Controls.Add(this.checkBox1);
+      this.groupBox1.Location = new System.Drawing.Point(3, 3);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(348, 236);
+      this.groupBox1.TabIndex = 0;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Backup Executions";
+      // 
+      // groupBox3
+      // 
+      this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.groupBox3.Location = new System.Drawing.Point(3, 3);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Size = new System.Drawing.Size(207, 236);
+      this.groupBox3.TabIndex = 0;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "Restore Executions";
+      // 
+      // checkBox1
+      // 
+      this.checkBox1.AutoSize = true;
+      this.checkBox1.Enabled = false;
+      this.checkBox1.Location = new System.Drawing.Point(6, 19);
+      this.checkBox1.Name = "checkBox1";
+      this.checkBox1.Size = new System.Drawing.Size(137, 17);
+      this.checkBox1.TabIndex = 0;
+      this.checkBox1.Text = "Pre-Backup Executions";
+      this.checkBox1.UseVisualStyleBackColor = true;
+      // 
+      // textBox1
+      // 
+      this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.textBox1.Enabled = false;
+      this.textBox1.Location = new System.Drawing.Point(6, 35);
+      this.textBox1.Multiline = true;
+      this.textBox1.Name = "textBox1";
+      this.textBox1.Size = new System.Drawing.Size(336, 85);
+      this.textBox1.TabIndex = 1;
+      // 
+      // textBox2
+      // 
+      this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.textBox2.Enabled = false;
+      this.textBox2.Location = new System.Drawing.Point(6, 145);
+      this.textBox2.Multiline = true;
+      this.textBox2.Name = "textBox2";
+      this.textBox2.Size = new System.Drawing.Size(336, 85);
+      this.textBox2.TabIndex = 3;
+      // 
+      // checkBox2
+      // 
+      this.checkBox2.AutoSize = true;
+      this.checkBox2.Enabled = false;
+      this.checkBox2.Location = new System.Drawing.Point(6, 126);
+      this.checkBox2.Name = "checkBox2";
+      this.checkBox2.Size = new System.Drawing.Size(142, 17);
+      this.checkBox2.TabIndex = 2;
+      this.checkBox2.Text = "Post-Backup Executions";
+      this.checkBox2.UseVisualStyleBackColor = true;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(456, 149);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(75, 23);
+      this.button1.TabIndex = 13;
+      this.button1.Text = "Resources";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // MainForm
       // 
@@ -331,6 +458,13 @@ namespace Xeno.SQLRestore.Views
       this.tabArchive.PerformLayout();
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      this.tabExtras.ResumeLayout(false);
+      this.splitContainer1.Panel1.ResumeLayout(false);
+      this.splitContainer1.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+      this.splitContainer1.ResumeLayout(false);
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -360,6 +494,15 @@ namespace Xeno.SQLRestore.Views
     private System.Windows.Forms.ToolStripMenuItem mnuOptions;
     private System.Windows.Forms.Button btnSqlDbRefresh;
     private System.Windows.Forms.Button btnSqlTest;
+    private System.Windows.Forms.TabPage tabExtras;
+    private System.Windows.Forms.SplitContainer splitContainer1;
+    private System.Windows.Forms.GroupBox groupBox1;
+    private System.Windows.Forms.GroupBox groupBox3;
+    private System.Windows.Forms.TextBox textBox2;
+    private System.Windows.Forms.CheckBox checkBox2;
+    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.CheckBox checkBox1;
+    private System.Windows.Forms.Button button1;
   }
 }
 

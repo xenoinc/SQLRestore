@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Database\SqlConnectionStruct.cs" />
     <Compile Include="Data\Database\SqlServerDatabase.cs" />
     <Compile Include="Data\Database\UserVerification.cs" />
+    <Compile Include="Data\Helpers.cs" />
     <Compile Include="Data\MSSqlHelpers.cs" />
     <Compile Include="Data\Providers\IniFile.cs" />
     <Compile Include="Data\TestBackupService.cs" />
@@ -96,14 +98,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\Scripts\DbRestore.sql" />
+    <EmbeddedResource Include="Data\Database\Scripts\DbRestore.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\Scripts\DbBackup.sql" />
+    <EmbeddedResource Include="Data\Database\Scripts\DbBackup.sql" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Data\Scripts\GetServerList.sql" />
+    <Folder Include="Data\Database\Commands\" />
+    <Folder Include="Data\Database\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Database\Scripts\GetServerList.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

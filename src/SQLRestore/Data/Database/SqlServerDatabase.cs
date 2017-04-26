@@ -19,15 +19,6 @@ using System.Runtime.InteropServices;
 
 namespace Xeno.SQLRestore.Data.Database
 {
-  public struct SqlConnectionStruct
-  {
-    public bool IsTrustedConnection;
-    public string Server;
-    public string Database;
-    public string UserName;
-    public string Password;
-  }
-
   public class SqlServerDatabase : IDisposable
   {
     private SqlConnection _conn;
@@ -85,7 +76,6 @@ namespace Xeno.SQLRestore.Data.Database
       UserName = connStruct.UserName;
       Password = connStruct.Password;
     }
-
     
     private bool _disposed = false;
     private SafeHandle _handle = new SafeFileHandle(IntPtr.Zero, true);

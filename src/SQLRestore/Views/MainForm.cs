@@ -14,8 +14,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 using Xeno.SQLRestore.Data;
 using Xeno.SQLRestore.Data.Database;
+using System.IO;
+using System.Collections;
+using System.Linq;
 
 namespace Xeno.SQLRestore.Views
 {
@@ -53,8 +57,11 @@ namespace Xeno.SQLRestore.Views
 
     private void MainForm_Load(object sender, EventArgs e)
     {
-      // RefreshBackupList();
-      RefreshDatabaseList();
+      // later
+      //RefreshBackupList();
+
+      //RefreshDatabaseList();
+
       //this.Status = "";
     }
 
@@ -65,16 +72,33 @@ namespace Xeno.SQLRestore.Views
 
     private void btnDbBackup_Click(object sender, EventArgs e)
     {
-      int index = lstAvailableDb.SelectedIndex;
-      if (index > -1)
-      {
-        string dbName = lstAvailableDb.SelectedItem.ToString();
-        DbBackup(dbName);
-      }
-      else
-      {
-        MessageBox.Show("Select a DB to backup.");
-      }
+      string folder = AppSettings.BackupFolder;
+      string file = AppSettings.BackupFileFormat;
+      string dbName = string.Empty;
+      //if (!System.IO.Directory.Exists(folder))
+      //{
+      //  this.Status = "Missing output directory.";
+      //  MessageBox.Show("Missing output directory.");
+      //  return;
+      //}
+
+      //if (string.IsNullOrEmpty(file))
+      //{
+      //  this.Status = "Missing output file format.";
+      //  MessageBox.Show("Missing output file format.");
+      //  return;
+      //}
+
+      //int index = lstAvailableDb.SelectedIndex;
+      //if (index == -1)
+      //{
+      //  this.Status = "Must select a DB to begin.";
+      //  MessageBox.Show("Must select a DB to begin.");
+      //  return;
+      //}
+      //dbName = lstAvailableDb.SelectedItem.ToString();
+
+      DbBackup(dbName, folder, file);
     }
 
     private void btnDbRestore_Click(object sender, EventArgs e)
@@ -163,8 +187,6 @@ namespace Xeno.SQLRestore.Views
 
         }
         
-
-
         //con.Open();
         //DataTable databases = con.GetSchema("Databases");
         //foreach (DataRow database in databases.Rows)
@@ -190,10 +212,32 @@ namespace Xeno.SQLRestore.Views
       //MessageBox.Show("feature not implemented");
     }
 
-    private void DbBackup(string dbName)
+    private void DbBackup(string dbName, string folder, string fileFormat)
     {
-      //MessageBox.Show("feature not implemented");
+
+      //foreach (var assemblyName in Assembly.GetExecutingAssembly().GetReferencedAssemblies())
+      //{
+      //  Assembly assembly = Assembly.Load(assemblyName);
+      //  foreach (var type in assembly.GetTypes())
+      //  {
+      //    Console.WriteLine(type.Name);
+      //  }
+      //}
+
+      //var asm = Assembly.GetExecutingAssembly();
+      //var resourceName = "Xeno.Data.Database.Scripts.GetServerList.sql";
+      //MessageBox.Show(asm.GetManifestResourceNames().ToString());
+
+      //using (Stream stream = asm.GetManifestResourceStream(resourceName))
+      //using(StreamReader reader = new StreamReader(stream))
+      //{
+      //  string result = reader.ReadToEnd();
+      //
+      //  MessageBox.Show(result);
+      //}
+
     }
+
 
     private void DbRestore(string fileName)
     {
@@ -202,6 +246,37 @@ namespace Xeno.SQLRestore.Views
 
     #endregion Private Methods
 
+    #region Tests
+    private void button1_Click(object sender, EventArgs e)
+    {
+      TestGetResources();
+    }
+
+    private void TestGetResources()
+    {
+      //string[] resourceNames = this.GetType().Assembly.GetManifestResourceNames();
+
+      //string[] resourceNames = Helpers.GetAllResources();
+      //foreach (string resourceName in resourceNames)
+      //{
+      //  System.Diagnostics.Trace.WriteLine(resourceName);
+      //}
+
+      //  Xeno.SQLRestore.Properties.Resources.resources
+      //  Xeno.SQLRestore.Views.MainForm.resources
+      //  Xeno.SQLRestore.Views.SettingsForm.resources
+      //  Xeno.SQLRestore.Data.Database.Scripts.DbRestore.sql
+      //  Xeno.SQLRestore.Data.Database.Scripts.DbBackup.sql
+      //  Xeno.SQLRestore.Data.Database.Scripts.GetServerList.sql
+
+      var buff = Helpers.GetStringFromResource("Xeno.SQLRestore.Data.Database.Scripts.DbRestore.sql");
+
+      var sql = string.Format(buff, "mypath", "usecopyonly");
+      MessageBox.Show(sql);
+
+    }
+
+    #endregion Tests
 
   }
 }
