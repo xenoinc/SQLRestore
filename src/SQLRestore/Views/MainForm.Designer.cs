@@ -45,6 +45,7 @@ namespace Xeno.SQLRestore.Views
       this.tsProgressBar = new System.Windows.Forms.ToolStripProgressBar();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabBackup = new System.Windows.Forms.TabPage();
+      this.button1 = new System.Windows.Forms.Button();
       this.btnSqlTest = new System.Windows.Forms.Button();
       this.btnSqlDbRefresh = new System.Windows.Forms.Button();
       this.label5 = new System.Windows.Forms.Label();
@@ -60,29 +61,29 @@ namespace Xeno.SQLRestore.Views
       this.label3 = new System.Windows.Forms.Label();
       this.btnDbRestore = new System.Windows.Forms.Button();
       this.lvFileList = new System.Windows.Forms.ListView();
-      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-      this.mnuOptions = new System.Windows.Forms.ToolStripMenuItem();
       this.tabExtras = new System.Windows.Forms.TabPage();
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.groupBox3 = new System.Windows.Forms.GroupBox();
-      this.checkBox1 = new System.Windows.Forms.CheckBox();
-      this.textBox1 = new System.Windows.Forms.TextBox();
       this.textBox2 = new System.Windows.Forms.TextBox();
       this.checkBox2 = new System.Windows.Forms.CheckBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.groupBox3 = new System.Windows.Forms.GroupBox();
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.mnuOptions = new System.Windows.Forms.ToolStripMenuItem();
+      this.btnRefreshArchive = new System.Windows.Forms.Button();
       this.statusStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabBackup.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.tabArchive.SuspendLayout();
-      this.menuStrip1.SuspendLayout();
       this.tabExtras.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
       this.splitContainer1.SuspendLayout();
       this.groupBox1.SuspendLayout();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // statusStrip1
@@ -144,6 +145,16 @@ namespace Xeno.SQLRestore.Views
       this.tabBackup.TabIndex = 2;
       this.tabBackup.Text = "Backup";
       this.tabBackup.UseVisualStyleBackColor = true;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(456, 149);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(112, 23);
+      this.button1.TabIndex = 13;
+      this.button1.Text = "Resource Test";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // btnSqlTest
       // 
@@ -232,6 +243,7 @@ namespace Xeno.SQLRestore.Views
       // 
       // tabArchive
       // 
+      this.tabArchive.Controls.Add(this.btnRefreshArchive);
       this.tabArchive.Controls.Add(this.label4);
       this.tabArchive.Controls.Add(this.comboBox1);
       this.tabArchive.Controls.Add(this.chkRestoreOverwrite);
@@ -302,28 +314,12 @@ namespace Xeno.SQLRestore.Views
       this.lvFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.lvFileList.Location = new System.Drawing.Point(8, 19);
+      this.lvFileList.Location = new System.Drawing.Point(8, 35);
       this.lvFileList.Name = "lvFileList";
-      this.lvFileList.Size = new System.Drawing.Size(558, 174);
+      this.lvFileList.Size = new System.Drawing.Size(558, 158);
       this.lvFileList.TabIndex = 3;
       this.lvFileList.UseCompatibleStateImageBehavior = false;
-      // 
-      // menuStrip1
-      // 
-      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuOptions});
-      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-      this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(582, 24);
-      this.menuStrip1.TabIndex = 3;
-      this.menuStrip1.Text = "menuStrip1";
-      // 
-      // mnuOptions
-      // 
-      this.mnuOptions.Name = "mnuOptions";
-      this.mnuOptions.Size = new System.Drawing.Size(61, 20);
-      this.mnuOptions.Text = "Options";
-      this.mnuOptions.Click += new System.EventHandler(this.mnuOptions_Click);
+      this.lvFileList.View = System.Windows.Forms.View.List;
       // 
       // tabExtras
       // 
@@ -369,40 +365,6 @@ namespace Xeno.SQLRestore.Views
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Backup Executions";
       // 
-      // groupBox3
-      // 
-      this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.groupBox3.Location = new System.Drawing.Point(3, 3);
-      this.groupBox3.Name = "groupBox3";
-      this.groupBox3.Size = new System.Drawing.Size(207, 236);
-      this.groupBox3.TabIndex = 0;
-      this.groupBox3.TabStop = false;
-      this.groupBox3.Text = "Restore Executions";
-      // 
-      // checkBox1
-      // 
-      this.checkBox1.AutoSize = true;
-      this.checkBox1.Enabled = false;
-      this.checkBox1.Location = new System.Drawing.Point(6, 19);
-      this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Size = new System.Drawing.Size(137, 17);
-      this.checkBox1.TabIndex = 0;
-      this.checkBox1.Text = "Pre-Backup Executions";
-      this.checkBox1.UseVisualStyleBackColor = true;
-      // 
-      // textBox1
-      // 
-      this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.textBox1.Enabled = false;
-      this.textBox1.Location = new System.Drawing.Point(6, 35);
-      this.textBox1.Multiline = true;
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(336, 85);
-      this.textBox1.TabIndex = 1;
-      // 
       // textBox2
       // 
       this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -425,15 +387,67 @@ namespace Xeno.SQLRestore.Views
       this.checkBox2.Text = "Post-Backup Executions";
       this.checkBox2.UseVisualStyleBackColor = true;
       // 
-      // button1
+      // textBox1
       // 
-      this.button1.Location = new System.Drawing.Point(456, 149);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(75, 23);
-      this.button1.TabIndex = 13;
-      this.button1.Text = "Resources";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.textBox1.Enabled = false;
+      this.textBox1.Location = new System.Drawing.Point(6, 35);
+      this.textBox1.Multiline = true;
+      this.textBox1.Name = "textBox1";
+      this.textBox1.Size = new System.Drawing.Size(336, 85);
+      this.textBox1.TabIndex = 1;
+      // 
+      // checkBox1
+      // 
+      this.checkBox1.AutoSize = true;
+      this.checkBox1.Enabled = false;
+      this.checkBox1.Location = new System.Drawing.Point(6, 19);
+      this.checkBox1.Name = "checkBox1";
+      this.checkBox1.Size = new System.Drawing.Size(137, 17);
+      this.checkBox1.TabIndex = 0;
+      this.checkBox1.Text = "Pre-Backup Executions";
+      this.checkBox1.UseVisualStyleBackColor = true;
+      // 
+      // groupBox3
+      // 
+      this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.groupBox3.Location = new System.Drawing.Point(3, 3);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Size = new System.Drawing.Size(207, 236);
+      this.groupBox3.TabIndex = 0;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "Restore Executions";
+      // 
+      // menuStrip1
+      // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuOptions});
+      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(582, 24);
+      this.menuStrip1.TabIndex = 3;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // mnuOptions
+      // 
+      this.mnuOptions.Name = "mnuOptions";
+      this.mnuOptions.Size = new System.Drawing.Size(61, 20);
+      this.mnuOptions.Text = "Options";
+      this.mnuOptions.Click += new System.EventHandler(this.mnuOptions_Click);
+      // 
+      // btnRefreshArchive
+      // 
+      this.btnRefreshArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnRefreshArchive.Location = new System.Drawing.Point(491, 6);
+      this.btnRefreshArchive.Name = "btnRefreshArchive";
+      this.btnRefreshArchive.Size = new System.Drawing.Size(75, 23);
+      this.btnRefreshArchive.TabIndex = 10;
+      this.btnRefreshArchive.Text = "Refresh";
+      this.btnRefreshArchive.UseVisualStyleBackColor = true;
+      this.btnRefreshArchive.Click += new System.EventHandler(this.btnRefreshArchive_Click);
       // 
       // MainForm
       // 
@@ -456,8 +470,6 @@ namespace Xeno.SQLRestore.Views
       this.groupBox2.PerformLayout();
       this.tabArchive.ResumeLayout(false);
       this.tabArchive.PerformLayout();
-      this.menuStrip1.ResumeLayout(false);
-      this.menuStrip1.PerformLayout();
       this.tabExtras.ResumeLayout(false);
       this.splitContainer1.Panel1.ResumeLayout(false);
       this.splitContainer1.Panel2.ResumeLayout(false);
@@ -465,6 +477,8 @@ namespace Xeno.SQLRestore.Views
       this.splitContainer1.ResumeLayout(false);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -503,6 +517,7 @@ namespace Xeno.SQLRestore.Views
     private System.Windows.Forms.TextBox textBox1;
     private System.Windows.Forms.CheckBox checkBox1;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btnRefreshArchive;
   }
 }
 

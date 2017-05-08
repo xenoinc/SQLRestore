@@ -3,19 +3,14 @@
  * Date:    2017-4-26
  * File:    Helpers.cs
  * Description:
- *  
+ *
  * To Do:
  * Change Log:
  *  2017-426 * Initial creation
  */
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Xeno.SQLRestore.Data
 {
@@ -46,6 +41,5 @@ namespace Xeno.SQLRestore.Data
       //  foreach (string name in resNames)
       //    System.Diagnostics.Trace.WriteLine(name);
     }
-
   }
 }

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Database\Scripts\Resource.cs" />
     <Compile Include="Data\Database\SqlConnectionStruct.cs" />
     <Compile Include="Data\Database\SqlServerDatabase.cs" />
     <Compile Include="Data\Database\UserVerification.cs" />
