@@ -55,6 +55,7 @@ namespace Xeno.SQLRestore.Views
       this.chkCompress = new System.Windows.Forms.CheckBox();
       this.chkIsGolden = new System.Windows.Forms.CheckBox();
       this.tabArchive = new System.Windows.Forms.TabPage();
+      this.btnRefreshArchive = new System.Windows.Forms.Button();
       this.label4 = new System.Windows.Forms.Label();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
       this.chkRestoreOverwrite = new System.Windows.Forms.CheckBox();
@@ -71,7 +72,6 @@ namespace Xeno.SQLRestore.Views
       this.groupBox3 = new System.Windows.Forms.GroupBox();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.mnuOptions = new System.Windows.Forms.ToolStripMenuItem();
-      this.btnRefreshArchive = new System.Windows.Forms.Button();
       this.statusStrip1.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabBackup.SuspendLayout();
@@ -258,6 +258,17 @@ namespace Xeno.SQLRestore.Views
       this.tabArchive.Text = "Archives";
       this.tabArchive.UseVisualStyleBackColor = true;
       // 
+      // btnRefreshArchive
+      // 
+      this.btnRefreshArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnRefreshArchive.Location = new System.Drawing.Point(491, 6);
+      this.btnRefreshArchive.Name = "btnRefreshArchive";
+      this.btnRefreshArchive.Size = new System.Drawing.Size(75, 23);
+      this.btnRefreshArchive.TabIndex = 10;
+      this.btnRefreshArchive.Text = "Refresh";
+      this.btnRefreshArchive.UseVisualStyleBackColor = true;
+      this.btnRefreshArchive.Click += new System.EventHandler(this.btnRefreshArchive_Click);
+      // 
       // label4
       // 
       this.label4.AutoSize = true;
@@ -271,11 +282,14 @@ namespace Xeno.SQLRestore.Views
       // 
       this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.comboBox1.Enabled = false;
+      this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBox1.FormattingEnabled = true;
       this.comboBox1.Location = new System.Drawing.Point(8, 219);
       this.comboBox1.Name = "comboBox1";
       this.comboBox1.Size = new System.Drawing.Size(443, 21);
       this.comboBox1.TabIndex = 8;
+      this.comboBox1.Text = "(use listbox on Backup tab for now)";
       // 
       // chkRestoreOverwrite
       // 
@@ -292,6 +306,7 @@ namespace Xeno.SQLRestore.Views
       // 
       this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
       this.label3.AutoSize = true;
+      this.label3.Enabled = false;
       this.label3.Location = new System.Drawing.Point(8, 200);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(63, 13);
@@ -437,17 +452,6 @@ namespace Xeno.SQLRestore.Views
       this.mnuOptions.Size = new System.Drawing.Size(61, 20);
       this.mnuOptions.Text = "Options";
       this.mnuOptions.Click += new System.EventHandler(this.mnuOptions_Click);
-      // 
-      // btnRefreshArchive
-      // 
-      this.btnRefreshArchive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnRefreshArchive.Location = new System.Drawing.Point(491, 6);
-      this.btnRefreshArchive.Name = "btnRefreshArchive";
-      this.btnRefreshArchive.Size = new System.Drawing.Size(75, 23);
-      this.btnRefreshArchive.TabIndex = 10;
-      this.btnRefreshArchive.Text = "Refresh";
-      this.btnRefreshArchive.UseVisualStyleBackColor = true;
-      this.btnRefreshArchive.Click += new System.EventHandler(this.btnRefreshArchive_Click);
       // 
       // MainForm
       // 

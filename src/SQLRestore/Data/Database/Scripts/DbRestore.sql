@@ -13,6 +13,17 @@
 
 USE [master];
 
+Print 'Killing active connections'
+Print ''
+
+DECLARE @SPId VARCHAR(7000);
+
+SELECT @SPId = COALESCE(@SPId,'')+'KILL '+CAST(SPID AS VARCHAR)+'; '
+FROM Master..SysProcesses WHERE DB_NAME(DBId) = '{0}';
+PRINT @SPId;
+EXEC(@SPId);
+
+
 RESTORE DATABASE [{0}]
 FROM DISK = N'{1}'
 WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5;
