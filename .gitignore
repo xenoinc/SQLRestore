@@ -1,8 +1,8 @@
 # Copyright 2017 Xeno Innovations, Inc.
 
 # Custom Ignore List
-/doc/*.csv
-/doc/backup
+/docs/*.csv
+/docs/backup
 
 build/bin/
 
